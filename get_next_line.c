@@ -1,42 +1,28 @@
 #include "get_next_line.h"
 
-static char *update_stash(char *stash)
+static char *update_stash(char *stash)//guarda o resto pra proxima chamada
 {
     int i;
     int j;
-    int len;
     char *new_stash;
 
     i = 0;
     while (stash[i] != '\n' && stash[i] != '\0')
         i++;
-    if (stash[i] == '\0')
-    {
-        free(stash);
-        return (NULL);
-    }
-    i++;
-    if (stash[i] == '\0')
-    {
-        free(stash);
-        return (NULL);
-    }
-    len = ft_strlen(stash + i);
-    new_stash = malloc(len + 1);
+    if (stash[i] == '\0' || stash[++i] == '\0')
+        return (free(stash), NULL);
+    new_stash = malloc(ft_strlen(stash + i) + 1);
     if (!new_stash)
-    {
-        free(stash);
-        return (NULL);
-    }
+        return (free(stash), NULL);
     j = 0;
-    while(stash[i] != '\0')
+    while(stash[i])
         new_stash[j++] = stash[i++];
     new_stash[j] = '\0';
     free(stash);
     return(new_stash);
 }
 
-static char *get_line(char *stash)
+static char *get_line(char *stash) //separa a linha que será retornada
 {
     char *line;
     int i;
@@ -61,7 +47,7 @@ static char *get_line(char *stash)
     return (line);
 }
 
-static char *read_to_stash(int fd, char *stash, char *buffer) //Lê o arquivo em pedaços e acumula tudo no stash até encontrar uma \n ou chegar no EOF
+static char *read_to_stash(int fd, char *stash, char *buffer) //junta texto até ter uma linha completa
 {
     int bytes_read; //guarda QUANTIDADE de bytes que o read conseguiu ler
 
