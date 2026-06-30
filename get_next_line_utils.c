@@ -51,7 +51,7 @@ char *ft_strchr(const char *str, int c)
     }
 }
 
-char *ft_strjoin(const char *s1, const char *s2)
+char *ft_strjoin(char *s1, const char *s2)
 {
     int i;
     int j;
@@ -68,11 +68,14 @@ char *ft_strjoin(const char *s1, const char *s2)
         return (NULL);
     i = 0;
     j = 0;
-    while (s1[i])
-        new_str[i++] = s1[i];
-    while (s2[j])
-    
+    while (s1 && s1[i])
+    {
+        new_str[i] = s1[i];
+        i++;
+    }
+    while (s2 && s2[j])
         new_str[i++] = s2[j++];
     new_str[i] = '\0';
+    free(s1);
     return (new_str);
 }
