@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmatos-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/01 14:03:01 by mmatos-d          #+#    #+#             */
+/*   Updated: 2026/07/01 14:03:32 by mmatos-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
@@ -12,6 +24,6 @@ char	*get_next_line(int fd);
 int		ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
 char	*ft_strchr(const char *str, int c);
-char    *ft_strjoin(char *s1, const char *s2);
+char	*ft_strjoin(char *s1, const char *s2);
 
 #endif
