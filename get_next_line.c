@@ -73,7 +73,7 @@ static char	*read_to_stash(int fd, char *stash, char *buffer)
 		{
 			free(stash);
 			stash = NULL;
-			return (NULL);
+			return (stash);
 		}
 		if (bytes_read == 0)
 			break ;
