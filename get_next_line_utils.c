@@ -77,7 +77,7 @@ char	*ft_strjoin(char *s1, const char *s2)
 	s2_len = ft_strlen(s2);
 	new_str = malloc(s1_len + s2_len + 1);
 	if (new_str == NULL)
-		return (NULL);
+		return (free(s1), NULL);
 	i = 0;
 	j = 0;
 	while (s1 && s1[i])
