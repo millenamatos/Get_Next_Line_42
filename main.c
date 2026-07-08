@@ -10,6 +10,7 @@ int main(void)
 
     fd = open("teste.txt", O_RDONLY); //abre o arquivo apenas para leitura
     if (fd == -1)
+    {
         printf("Erro ao abrir o arquivo\n");
         return (1);
     }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmatos-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 13:45:16 by mmatos-d          #+#    #+#             */
-/*   Updated: 2026/07/01 14:02:47 by mmatos-d         ###   ########.fr       */
+/*   Created: 2026/07/08 19:05:45 by mmatos-d          #+#    #+#             */
+/*   Updated: 2026/07/08 19:05:50 by mmatos-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*update_stash(char *stash)
 {
@@ -87,24 +87,20 @@ static char	*read_to_stash(int fd, char *stash, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[1024];
 	char		*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
-		free(stash);
-		stash = NULL;
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
-	}
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	stash = read_to_stash(fd, stash, buffer);
+	stash[fd] = read_to_stash(fd, stash[fd], buffer);
 	free(buffer);
-	if (!stash)
+	if (!stash[fd])
 		return (NULL);
-	line = get_line(stash);
-	stash = update_stash(stash);
+	line = get_line(stash[fd]);
+	stash[fd] = update_stash(stash[fd]);
 	return (line);
 }
