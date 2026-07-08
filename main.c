@@ -8,7 +8,7 @@ int main(void)
     int fd;
     char *line;
 
-    fd = open("teste.txt", O_RDONLY); //abre o arquivo apenas para leitura
+    fd = open("mandatory.txt", O_RDONLY); //abre o arquivo apenas para leitura
     if (fd == -1)
     {
         printf("Erro ao abrir o arquivo\n");
