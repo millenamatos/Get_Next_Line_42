@@ -1,6 +1,6 @@
-#include <stdio.h> //printf
-#include <stdlib.h> //free
-#include <fcntl.h>// open
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
 #include "get_next_line_bonus.h"
 
 int	main(void)

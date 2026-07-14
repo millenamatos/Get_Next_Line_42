@@ -1,14 +1,14 @@
-#include <stdio.h> //printf
-#include <stdlib.h> //free
-#include <fcntl.h> //open e O_RDONLY
-#include "get_next_line.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include "../get_next_line.h"
 
 int main(void)
 {
     int fd;
     char *line;
 
-    fd = open("mandatory.txt", O_RDONLY); //abre o arquivo apenas para leitura
+    fd = open("tests/empty_lines.txt", O_RDONLY); //abre o arquivo apenas para leitura
     if (fd == -1)
     {
         printf("Erro ao abrir o arquivo\n");
@@ -16,8 +16,9 @@ int main(void)
     }
     while ((line = get_next_line(fd)) != NULL) //chama gnl repetidamente até retornar null, a cada chamada ela retorna uma linha
     {
-        printf("[%s]\n", line); //imprime entre [] pra facilitar leitura
-        free(line); //libera memória alocada por gnl
+        printf("%s", line);
+        printf ("-----------------\n");
+        free(line);
     }
     close (fd); //fecha o arquivo após finalizar a leitura
     return(0);

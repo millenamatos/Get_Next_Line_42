@@ -1,0 +1,4 @@
+Hello!
+This is a basic test file.
+Each line should be returned separately.
+End of file.

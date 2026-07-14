@@ -21,8 +21,7 @@ The bonus implementation supports reading from multiple file descriptors simulta
 ### Mandatory
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \
-get_next_line.c get_next_line_utils.c main.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=3 get_next_line.c get_next_line_utils.c tests/main.c -o gnl_test
 ```
 
 ### Bonus
