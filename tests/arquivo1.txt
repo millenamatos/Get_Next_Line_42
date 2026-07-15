@@ -1,5 +1,0 @@
-Linha 1 do arquivo 1
-Linha 2 do arquivo 1
-Linha 3 do arquivo 1
-Linha 4 do arquivo 1
-Linha 5 do arquivo 1

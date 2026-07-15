@@ -21,14 +21,15 @@ The bonus implementation supports reading from multiple file descriptors simulta
 ### Mandatory
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=3 get_next_line.c get_next_line_utils.c tests/main.c -o gnl_test
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=10 \
+get_next_line.c get_next_line_utils.c tests/main.c -I . -o gnl_test
 ```
 
 ### Bonus
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \
-get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=10 \
+get_next_line_bonus.c get_next_line_utils_bonus.c tests/main_bonus.c -I . -o gnl_test
 ```
 
 ---
@@ -68,7 +69,6 @@ Bonus
 ### Helper Functions
 
 - `ft_strlen`
-- `ft_strdup`
 - `ft_strchr`
 - `ft_strjoin`
 

@@ -9,8 +9,8 @@ int	main(void)
 	int		fd2;
 	char	*line;
 
-	fd1 = open("arquivo1.txt", O_RDONLY);
-	fd2 = open("arquivo2.txt", O_RDONLY);
+	fd1 = open("tests/basic.txt", O_RDONLY);
+	fd2 = open("tests/empty_lines.txt", O_RDONLY);
 
 	if (fd1 == -1 || fd2 == -1)
 	{
@@ -18,33 +18,28 @@ int	main(void)
 		return (1);
 	}
 
-	printf("=== Primeira linha do arquivo 1 ===\n");
+	printf("Primeira linha do basic.txt: \n");
 	line = get_next_line(fd1);
 	printf("%s", line);
 	free(line);
 
-	printf("\n=== Primeira linha do arquivo 2 ===\n");
+	printf("\nPrimeira linha do empty_lines.txt:\n");
 	line = get_next_line(fd2);
 	printf("%s", line);
 	free(line);
 
-	printf("\n=== Segunda linha do arquivo 2 ===\n");
+	printf("\nSegunda linha do empty_lines.txt:\n");
 	line = get_next_line(fd2);
 	printf("%s", line);
 	free(line);
 
-	printf("\n=== Terceira linha do arquivo 2 ===\n");
+	printf("\nTerceira linha do empty_lines.txt:\n");
 	line = get_next_line(fd2);
 	printf("%s", line);
 	free(line);
 
-    printf("\n=== Segunda linha do arquivo 1 ===\n");
+    printf("\nSegunda linha do basic.txt:\n");
 	line = get_next_line(fd1);
-	printf("%s", line);
-	free(line);
-
-    printf("\n=== Quinta linha do arquivo 2 ===\n");
-	line = get_next_line(fd2);
 	printf("%s", line);
 	free(line);
 
