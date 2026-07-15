@@ -8,18 +8,18 @@ int main(void)
     int fd;
     char *line;
 
-    fd = open("tests/empty_lines.txt", O_RDONLY); //abre o arquivo apenas para leitura
+    fd = open("tests/files/basic.txt", O_RDONLY);
     if (fd == -1)
     {
-        printf("Erro ao abrir o arquivo\n");
+        printf("Error opening the file.\n");
         return (1);
     }
-    while ((line = get_next_line(fd)) != NULL) //chama gnl repetidamente até retornar null, a cada chamada ela retorna uma linha
+    while ((line = get_next_line(fd)) != NULL)
     {
         printf("%s", line);
         printf ("-----------------\n");
         free(line);
     }
-    close (fd); //fecha o arquivo após finalizar a leitura
+    close (fd);
     return(0);
 }

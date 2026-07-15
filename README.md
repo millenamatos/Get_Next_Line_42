@@ -20,18 +20,44 @@ The bonus implementation supports reading from multiple file descriptors simulta
 
 ### Mandatory
 
+Compile:
+
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=10 \
 get_next_line.c get_next_line_utils.c tests/main.c -I . -o gnl_test
 ```
 
+Run:
+
+```bash
+./gnl_test
+```
+
 ### Bonus
+
+Compile:
 
 ```bash
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=10 \
 get_next_line_bonus.c get_next_line_utils_bonus.c tests/main_bonus.c -I . -o gnl_test
 ```
 
+Run:
+
+```bash
+./gnl_test
+```
+
+To test a different file, change the path passed to `open()` in `tests/main.c` (mandatory) or `tests/main_bonus.c` (bonus).
+
+Available test files:
+
+- basic.txt
+- big_line.txt
+- empty_lines.txt
+- empty.txt
+- one_line_newline.txt
+- one_line.txt
 ---
 
 ## Algorithm

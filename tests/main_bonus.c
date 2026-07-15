@@ -9,12 +9,12 @@ int	main(void)
 	int		fd2;
 	char	*line;
 
-	fd1 = open("tests/basic.txt", O_RDONLY);
-	fd2 = open("tests/empty_lines.txt", O_RDONLY);
+	fd1 = open("tests/files/basic.txt", O_RDONLY);
+	fd2 = open("tests/files/empty_lines.txt", O_RDONLY);
 
 	if (fd1 == -1 || fd2 == -1)
 	{
-		printf("Erro ao abrir os arquivos.\n");
+		printf("Error opening the file.\n");
 		return (1);
 	}
 
